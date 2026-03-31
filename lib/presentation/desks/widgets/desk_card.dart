@@ -33,6 +33,12 @@ class _DeskCardState extends State<DeskCard> {
     _desk = widget.desk;
   }
 
+<<<<<<< HEAD
+=======
+  // ===========================================
+  // MÉTHODES DE RÉSERVATION ET LIBÉRATION
+  // ===========================================
+>>>>>>> 902ff85392b437ac91fd7832d2694e358f27ae11
   Future<void> _bookDesk(DateTime date, String reason) async {
     final currentUser = _apiService.currentUser;
     if (currentUser == null) return;
@@ -135,6 +141,7 @@ class _DeskCardState extends State<DeskCard> {
     }
   }
 
+<<<<<<< HEAD
   String _formatTime(DateTime time) {
     final now = DateTime.now();
     final difference = now.difference(time);
@@ -148,6 +155,11 @@ class _DeskCardState extends State<DeskCard> {
     }
   }
 
+=======
+  // ===========================================
+  // BUILD DE LA CARTE
+  // ===========================================
+>>>>>>> 902ff85392b437ac91fd7832d2694e358f27ae11
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -168,6 +180,10 @@ class _DeskCardState extends State<DeskCard> {
             const SizedBox(height: 4),
             Text(_desk.deskNumber, style: TextStyle(fontWeight: FontWeight.bold, fontSize: widget.isIndividual ? 11 : 10)),
 
+<<<<<<< HEAD
+=======
+            // Afficher le prénom si le poste est réservé
+>>>>>>> 902ff85392b437ac91fd7832d2694e358f27ae11
             if (_desk.status == DeskStatus.booked && _desk.bookedByName != null)
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 2),
@@ -182,6 +198,10 @@ class _DeskCardState extends State<DeskCard> {
                 ),
               ),
 
+<<<<<<< HEAD
+=======
+            // Afficher le nom si le poste est occupé
+>>>>>>> 902ff85392b437ac91fd7832d2694e358f27ae11
             if (_desk.status == DeskStatus.occupied && _desk.occupiedByName != null)
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 2),
@@ -201,6 +221,12 @@ class _DeskCardState extends State<DeskCard> {
     );
   }
 
+<<<<<<< HEAD
+=======
+  // ===========================================
+  // AFFICHAGE DES DÉTAILS (MODAL BOTTOM SHEET)
+  // ===========================================
+>>>>>>> 902ff85392b437ac91fd7832d2694e358f27ae11
   void _showDetails(BuildContext context) {
     final currentUser = _apiService.currentUser;
 
@@ -231,6 +257,12 @@ class _DeskCardState extends State<DeskCard> {
     );
   }
 
+<<<<<<< HEAD
+=======
+  // ===========================================
+  // SOUS-COMPOSANTS
+  // ===========================================
+>>>>>>> 902ff85392b437ac91fd7832d2694e358f27ae11
   Widget _buildHeader() {
     return Row(
       children: [
@@ -276,12 +308,15 @@ class _DeskCardState extends State<DeskCard> {
         children: [
           _buildDetailRow(Icons.person, 'Occupé par', _desk.occupiedByName!),
           _buildDetailRow(Icons.business, 'Département', _desk.department ?? 'Non spécifié'),
+<<<<<<< HEAD
           if (_desk.occupiedSince != null)
             _buildDetailRow(
                 Icons.access_time,
                 'Depuis',
                 _formatTime(_desk.occupiedSince!)
             ),
+=======
+>>>>>>> 902ff85392b437ac91fd7832d2694e358f27ae11
         ],
       );
     }
@@ -386,6 +421,12 @@ class _DeskCardState extends State<DeskCard> {
     );
   }
 
+<<<<<<< HEAD
+=======
+  // ===========================================
+  // DIALOGUE DE RÉSERVATION
+  // ===========================================
+>>>>>>> 902ff85392b437ac91fd7832d2694e358f27ae11
   void _showBookingDialog(BuildContext context) {
     DateTime selectedDate = DateTime.now();
     TextEditingController reasonController = TextEditingController();

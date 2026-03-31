@@ -283,11 +283,15 @@ class ApiService {
     }
   }
 
+<<<<<<< HEAD
   // ============================================================
   // POINTAGE RFID
   // ============================================================
 
   // Récupérer tous les pointages (admin)
+=======
+  // POINTAGE
+>>>>>>> 902ff85392b437ac91fd7832d2694e358f27ae11
   Future<List<Attendance>> getPointages() async {
     try {
       final response = await http.get(
@@ -306,7 +310,10 @@ class ApiService {
     }
   }
 
+<<<<<<< HEAD
   // Récupérer les pointages d'un employé spécifique
+=======
+>>>>>>> 902ff85392b437ac91fd7832d2694e358f27ae11
   Future<List<Attendance>> getPointagesEmploye(String uid) async {
     try {
       final response = await http.get(
@@ -324,6 +331,7 @@ class ApiService {
       return [];
     }
   }
+<<<<<<< HEAD
 
   // Récupérer le pointage d'un jour spécifique
   Future<Attendance?> getPointageJour(String uid, String date) async {
@@ -424,4 +432,6 @@ class ApiService {
       return false;
     }
   }
+=======
+>>>>>>> 902ff85392b437ac91fd7832d2694e358f27ae11
 }

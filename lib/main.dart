@@ -10,7 +10,10 @@ import 'domain/entities/user.dart'; // AJOUTER CET IMPORT
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 902ff85392b437ac91fd7832d2694e358f27ae11
   final apiService = ApiService();
   await apiService.loadToken();
   await apiService.loadUser();

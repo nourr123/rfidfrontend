@@ -86,6 +86,7 @@ class _DeskMapScreenState extends State<DeskMapScreen> {
     }
   }
 
+<<<<<<< HEAD
   Future<String?> _findPosteByUid(String uid) async {
     try {
       for (var desk in _desks) {
@@ -99,31 +100,46 @@ class _DeskMapScreenState extends State<DeskMapScreen> {
     }
   }
 
+=======
+>>>>>>> 902ff85392b437ac91fd7832d2694e358f27ae11
   Future<void> _loadOccupants() async {
     try {
       final pointages = await _apiService.getPointages();
       final occupants = <Map<String, String>>[];
+<<<<<<< HEAD
 
+=======
+>>>>>>> 902ff85392b437ac91fd7832d2694e358f27ae11
       for (var attendance in pointages) {
         if (attendance.isPresentToday && attendance.sessions.isNotEmpty) {
           final session = attendance.sessions.firstWhere(
                 (s) => s.isActive,
             orElse: () => attendance.sessions.first,
           );
+<<<<<<< HEAD
 
           if (session.isActive) {
             final poste = await _findPosteByUid(attendance.uid);
 
+=======
+          if (session.isActive) {
+>>>>>>> 902ff85392b437ac91fd7832d2694e358f27ae11
             occupants.add({
               'name': attendance.nom ?? 'Employé',
               'uid': attendance.uid,
               'time': session.entree ?? '',
+<<<<<<< HEAD
               'poste': poste ?? 'Non assigné',
+=======
+>>>>>>> 902ff85392b437ac91fd7832d2694e358f27ae11
             });
           }
         }
       }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 902ff85392b437ac91fd7832d2694e358f27ae11
       setState(() {
         _occupants = occupants;
       });
@@ -169,6 +185,10 @@ class _DeskMapScreenState extends State<DeskMapScreen> {
     }
   }
 
+<<<<<<< HEAD
+=======
+  // Déconnexion — utilisée uniquement par l'utilisateur normal
+>>>>>>> 902ff85392b437ac91fd7832d2694e358f27ae11
   void _logout() async {
     final confirm = await showDialog<bool>(
       context: context,
@@ -247,19 +267,33 @@ class _DeskMapScreenState extends State<DeskMapScreen> {
     _loadOccupants();
   }
 
+<<<<<<< HEAD
+=======
+  // ─────────────────────────────────────────────────────────────
+  //  BUILD
+  // ─────────────────────────────────────────────────────────────
+>>>>>>> 902ff85392b437ac91fd7832d2694e358f27ae11
   @override
   Widget build(BuildContext context) {
     final currentUser = _apiService.currentUser;
     final isAdmin = currentUser?.role == UserRole.admin;
 
     return Scaffold(
+<<<<<<< HEAD
+=======
+      // ── AppBar : uniquement pour l'utilisateur normal ─────────
+>>>>>>> 902ff85392b437ac91fd7832d2694e358f27ae11
       appBar: isAdmin
           ? null
           : AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         surfaceTintColor: Colors.transparent,
+<<<<<<< HEAD
         centerTitle: false,
+=======
+        centerTitle: false,  // ← AJOUTEZ CETTE LIGNE
+>>>>>>> 902ff85392b437ac91fd7832d2694e358f27ae11
         title: Text(
           'Postes de travail',
           style: TextStyle(
@@ -307,6 +341,10 @@ class _DeskMapScreenState extends State<DeskMapScreen> {
         ],
       ),
 
+<<<<<<< HEAD
+=======
+      // ── Body ─────────────────────────────────────────────────
+>>>>>>> 902ff85392b437ac91fd7832d2694e358f27ae11
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -327,6 +365,7 @@ class _DeskMapScreenState extends State<DeskMapScreen> {
               padding: const EdgeInsets.all(20.0),
               child: Column(
                 children: [
+<<<<<<< HEAD
                   _buildCalendar(),
                   const SizedBox(height: 20),
                   _buildLegend(),
@@ -335,6 +374,25 @@ class _DeskMapScreenState extends State<DeskMapScreen> {
                   const SizedBox(height: 20),
                   _buildFloorHeader(),
                   const SizedBox(height: 20),
+=======
+                  // ── Calendrier ─────────────────────────────────
+                  _buildCalendar(),
+                  const SizedBox(height: 20),
+
+                  // ── Légende ────────────────────────────────────
+                  _buildLegend(),
+                  const SizedBox(height: 20),
+
+                  // ── Workspace Pro ──────────────────────────────
+                  _buildWorkspaceSection(),
+                  const SizedBox(height: 20),
+
+                  // ── Floor header ───────────────────────────────
+                  _buildFloorHeader(),
+                  const SizedBox(height: 20),
+
+                  // ── Postes ─────────────────────────────────────
+>>>>>>> 902ff85392b437ac91fd7832d2694e358f27ae11
                   if (_isLoading)
                     const Center(
                       child: Padding(
@@ -364,6 +422,10 @@ class _DeskMapScreenState extends State<DeskMapScreen> {
                     )
                   else
                     _buildDeskGrid(),
+<<<<<<< HEAD
+=======
+
+>>>>>>> 902ff85392b437ac91fd7832d2694e358f27ae11
                   const SizedBox(height: 30),
                   _buildFooter(),
                   const SizedBox(height: 20),
@@ -381,6 +443,12 @@ class _DeskMapScreenState extends State<DeskMapScreen> {
     );
   }
 
+<<<<<<< HEAD
+=======
+  // ─────────────────────────────────────────────────────────────
+  //  DESK GRID
+  // ─────────────────────────────────────────────────────────────
+>>>>>>> 902ff85392b437ac91fd7832d2694e358f27ae11
   Widget _buildDeskGrid() {
     if (_desks.isEmpty) {
       return const Center(child: Text('Aucun poste disponible'));
@@ -455,6 +523,12 @@ class _DeskMapScreenState extends State<DeskMapScreen> {
     );
   }
 
+<<<<<<< HEAD
+=======
+  // ─────────────────────────────────────────────────────────────
+  //  CALENDAR
+  // ─────────────────────────────────────────────────────────────
+>>>>>>> 902ff85392b437ac91fd7832d2694e358f27ae11
   Widget _buildCalendar() {
     return Container(
       padding: const EdgeInsets.all(16),
@@ -554,6 +628,12 @@ class _DeskMapScreenState extends State<DeskMapScreen> {
     );
   }
 
+<<<<<<< HEAD
+=======
+  // ─────────────────────────────────────────────────────────────
+  //  LEGEND
+  // ─────────────────────────────────────────────────────────────
+>>>>>>> 902ff85392b437ac91fd7832d2694e358f27ae11
   Widget _buildLegend() {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
@@ -590,6 +670,12 @@ class _DeskMapScreenState extends State<DeskMapScreen> {
     );
   }
 
+<<<<<<< HEAD
+=======
+  // ─────────────────────────────────────────────────────────────
+  //  WORKSPACE SECTION
+  // ─────────────────────────────────────────────────────────────
+>>>>>>> 902ff85392b437ac91fd7832d2694e358f27ae11
   Widget _buildWorkspaceSection() {
     return Container(
       padding: const EdgeInsets.all(16),
@@ -751,7 +837,11 @@ class _DeskMapScreenState extends State<DeskMapScreen> {
                                 ),
                               ),
                               Text(
+<<<<<<< HEAD
                                 'Poste ${occupant['poste']} • Depuis ${occupant['time']?.substring(11, 16) ?? ''}',
+=======
+                                'Depuis ${occupant['time']?.substring(11, 16) ?? ''}',
+>>>>>>> 902ff85392b437ac91fd7832d2694e358f27ae11
                                 style: TextStyle(
                                     fontSize: 12, color: AppColors.gray),
                               ),
@@ -769,6 +859,12 @@ class _DeskMapScreenState extends State<DeskMapScreen> {
     );
   }
 
+<<<<<<< HEAD
+=======
+  // ─────────────────────────────────────────────────────────────
+  //  FLOOR HEADER
+  // ─────────────────────────────────────────────────────────────
+>>>>>>> 902ff85392b437ac91fd7832d2694e358f27ae11
   Widget _buildFloorHeader() {
     return Container(
       padding: const EdgeInsets.all(16),
@@ -833,6 +929,12 @@ class _DeskMapScreenState extends State<DeskMapScreen> {
     );
   }
 
+<<<<<<< HEAD
+=======
+  // ─────────────────────────────────────────────────────────────
+  //  FOOTER
+  // ─────────────────────────────────────────────────────────────
+>>>>>>> 902ff85392b437ac91fd7832d2694e358f27ae11
   Widget _buildFooter() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,

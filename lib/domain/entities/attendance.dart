@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 import 'package:intl/intl.dart';
 
+=======
+>>>>>>> 902ff85392b437ac91fd7832d2694e358f27ae11
 class Attendance {
   final String uid;
   final String date;
@@ -36,6 +39,7 @@ class Attendance {
 
   bool get isPresentToday {
     if (sessions.isEmpty) return false;
+<<<<<<< HEAD
     final today = DateFormat('dd-MM-yyyy').format(DateTime.now());
     return date == today;
   }
@@ -45,6 +49,11 @@ class Attendance {
     final lastSession = sessions.last;
     return lastSession.entree != null && lastSession.sortie == null;
   }
+=======
+    final today = DateTime.now().toIso8601String().split('T')[0];
+    return date == today;
+  }
+>>>>>>> 902ff85392b437ac91fd7832d2694e358f27ae11
 }
 
 class Session {
